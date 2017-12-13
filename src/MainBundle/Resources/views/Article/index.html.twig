@@ -1,0 +1,42 @@
+{% extends 'MainBundle::base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+    {% embed 'MainBundle:Default:navbar.html.twig' %}
+        {% block navbar_links %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('main_article') }}">Articles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('main_article_add') }}">Add</a>
+            </li>
+        {% endblock %}
+    {% endembed %}
+
+    <div class="container">
+        <div class="list-group">
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col">id</div>
+                    <div class="col">title</div>
+                    <div class="col">content</div>
+                    <div class="col text-center">action</div>
+                </div>
+            </div>
+            {% for article in articles %}
+                <div class="list-group-item">
+                    <div class="row">
+                        <div class="col">{{ article.id }}</div>
+                        <div class="col">{{ article.title }}</div>
+                        <div class="col">{{ article.content  }}</div>
+                        <div class="col row">
+                            <a class="col" href="{{ path('main_article_edit', { 'articleId': article.id }) }}">Edit</a>
+                            <a class="col" href="{{ path('main_article_delete', { 'articleId': article.id }) }}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

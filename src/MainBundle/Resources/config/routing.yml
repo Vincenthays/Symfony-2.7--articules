@@ -1,0 +1,15 @@
+main_article:
+    path:     /article
+    defaults: { _controller: MainBundle:Article:index }
+
+main_article_add:
+    path:     /article/add
+    defaults: { _controller: MainBundle:Article:add }
+
+main_article_edit:
+    path:     /article/edit/{articleId}
+    defaults: { _controller: MainBundle:Article:edit }
+
+main_article_delete:
+    path:     /article/delete/{articleId}
+    defaults: { _controller: MainBundle:Article:delete }

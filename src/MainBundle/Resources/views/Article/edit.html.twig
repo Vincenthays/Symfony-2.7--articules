@@ -1,0 +1,21 @@
+{% extends 'MainBundle::base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+    {% embed 'MainBundle:Default:navbar.html.twig' %}
+        {% block navbar_links %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('main_article') }}">Articles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('main_article_add') }}">Add</a>
+            </li>
+        {% endblock %}
+    {% endembed %}
+
+    <div class="container">
+        {{ form(form) }}
+    </div>
+
+{% endblock %}
