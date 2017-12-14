@@ -27,9 +27,9 @@ class ArticleController extends Controller
         $article = new Article();
         
         $form = $this->get('form.factory')->createBuilder('form', $article)
-            ->add('title',     'text')
-            ->add('content',   'textarea')
-            ->add('save',      'submit')
+            ->add('title',     'text', array('attr' => array('class' => 'form-control')))
+            ->add('content',   'textarea', array('attr' => array('class' => 'form-control')))
+            ->add('save',      'submit', array('attr' => array('class' => 'btn btn-success mt-3')))
             ->getForm()
         ;
 
@@ -58,9 +58,9 @@ class ArticleController extends Controller
         $article = $em->getRepository('MainBundle:Article')->findOneById($articleId);
 
         $form = $this->get('form.factory')->createBuilder('form', $article)
-            ->add('title',     'text')
-            ->add('content',   'textarea')
-            ->add('save',      'submit')
+            ->add('title',     'text', array('attr' => array('class' => 'form-control')))
+            ->add('content',   'textarea', array('attr' => array('class' => 'form-control')))
+            ->add('save',      'submit', array('attr' => array('class' => 'btn btn-success mt-3')))
             ->getForm()
         ;
 
